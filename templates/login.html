@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .login-container {
+            background: white;
+            padding: 170px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+        input {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .captcha {
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            background: #ccc;
+            padding:5px;
+            display: inline-block;
+            margin: 10px 0;
+            height:90%;
+            width:350px;
+            margin-left: 20px;
+        }
+
+        #captcha-input{
+            width:300px;
+        }
+        button {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            width:100%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #333;
+        }
+          
+        h2{
+            margin-top: -10px;
+        }
+        
+        .footer {
+            width: 100%;
+            padding-top: -100px;
+            text-align: center;
+            padding: 15px 0;
+            background: black;
+            color: white;
+            font-size: 12px;
+            position: absolute;
+            margin-top: 1000px;
+        }
+        .footer a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .image{
+            width:max-content;
+            height:fit-content;
+            margin-bottom:-100px ;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="image">
+        <img src ="{{ url_for('static', filename='images/login.png') }}" alt="login.png"> 
+    </div>
+    <div class="login-container">
+        <img src ="{{ url_for('static', filename='images/logo_porsche.png') }}" width ="200">
+        <h2>Welcome! Log in with your Porsche ID</h2>
+        <p>Please enter the e-mail address, you defined as your Porsche ID</p>
+        <form id="login-form">
+            <input type="email" id="email" placeholder="Porsche ID (Email)" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <div class="captcha">
+                <span id="captcha-text"></span>
+                <input type="text" id="captcha-input" placeholder="Enter CAPTCHA" required>
+            </div>
+            <button type="submit">Login with password</button>
+        </form>
+        <p>Don't have a Porsche ID? <a href="{{ url_for('signup') }}">Sign up</a></p>
+    </div>
+    <div class="footer">
+        © 2025 Porsche Sales & Marketplace, Inc. <a href="#">Legal Notice</a> | <a href="#">Privacy Policy</a> | <a href="#">Cookie Policy</a> | <a href="#">Accessibility Statement</a> | <a href="#">Open Source Software Notice</a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let captchaText = Math.random().toString(36).substring(2, 8).toUpperCase();
+            document.getElementById("captcha-text").innerText = captchaText;
+
+            document.getElementById("login-form").addEventListener("submit", function(event) {
+                event.preventDefault();
+                let userCaptcha = document.getElementById("captcha-input").value;
+                if (userCaptcha.toUpperCase() === captchaText) {
+                    alert("Login successful");
+                } else {
+                    alert("Invalid CAPTCHA. Try again.");
+                }
+            });
+        });
+    </script>
+    
+    
+
+</body>
+</html>

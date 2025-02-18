@@ -1,0 +1,558 @@
+/* Reset Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Header/Navbar */
+header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    color: white;
+    z-index: 10;
+}
+
+/* Porsche Logo */
+.logo img {
+    width: auto;
+    height: auto;
+    margin-left: 500px;
+}
+
+/* Menu Button */
+.menu-button {
+    font-size: 20px;
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+/* Sidebar Menu */
+.menu-container {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.close-btn {
+    font-size: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-item {
+    padding: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    background: #f8f8f8;
+}
+
+.menu-item:hover {
+    background: #ddd;
+}
+
+/* Content Box */
+.content-box {
+    margin-left: 270px;
+    padding: 20px;
+    width: 80%;
+    background: #f3f2f2;
+    border-radius: 10px;
+    display: none; /* Hidden until menu selection */
+}
+
+.car {
+    margin-bottom: 20px;
+}
+
+.car img {
+    width: 100%;
+    max-width: 350px;
+    display: block;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.car img:hover {
+    transform: scale(1.1);
+    transition: 0.3s ease-in-out;
+}
+
+.car-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.badge {
+    display: inline-block;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Car Background Image */
+.car-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: -1;
+}
+
+/* Dark Overlay */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Hero Text */
+.hero-text {
+    position: absolute;
+    top: 60%;
+    left: 5%;
+    transform: translateY(-50%);
+    color: white;
+    text-align: left;
+    font-size: 70px;
+    line-height: 1.1;
+    font-weight: 300;
+}
+
+.hero-text button {
+    background: transparent;
+    color: white;
+    padding: 15px 25px;
+    border: 3px solid white;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s ease-in-out, border-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    border-color: white;
+}
+
+.hero-text button:hover {
+    background: transparent;
+    border-color: rgb(173, 172, 172);
+    
+}
+
+
+/* Model Section */
+.model-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 50px auto;
+    flex-wrap: wrap;
+}
+
+/* Model Cards */
+.model-card {
+    position: relative;
+    width: 400px;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.model-card:hover {
+    transform: translateY(-8px);
+}
+
+/* Image Wrapper */
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    overflow: hidden;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Position h3 on top-left of the image */
+.image-wrapper h3 {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Position text and button inside the image */
+.model-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    color: white;
+    text-align: center;
+}
+
+.model-text p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Buttons */
+.model-text button {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    background: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+    color: black;
+}
+
+.model-text button:hover {
+    background: lightgray;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .hero-text {
+        font-size: 50px;
+    }
+
+    .model-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+h1{
+    font-size: 100px;
+    text-align: center;
+    padding-top: 20px;
+    color:black;
+}
+
+.new-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 0;
+}
+
+.new-container {
+    display: flex;
+    justify-content: center; /* Centers the items */
+    gap: 20px; /* Space between cards */
+    padding: 40px 0;
+    flex-wrap: wrap; /* Ensures responsiveness */
+}
+
+.new-card {
+    position: relative;
+    width: 300px; /* Adjust as needed */
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    flex: 1; /* Makes the items evenly spaced */
+    max-width: 350px; /* Prevents excessive stretching */
+}
+
+.new-card:hover {
+    transform: scale(1.05);
+}
+
+.new-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    display: block;
+}
+
+.new-text {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0 0 15px 15px;
+}
+
+.new-text span {
+    font-size: 1.5em;
+}
+
+.discover p{
+    font-size: 45px;
+    text-align: center;
+    font-weight: 600;
+}
+
+h6 i{
+    font-size: 12px;
+}
+
+.next-card{
+    display:flex;
+    background-color: black;
+    height:400px;
+    width:1100px;
+    margin-left: 100px;
+    border-radius: 15px;
+    margin-bottom: 60px;
+    margin-top: 70px;
+}
+
+.next-card img{
+    height:auto;
+    width:550px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.next-text h2{
+    color:white;
+    padding-left: 60px;
+    padding-top: 40px;
+}
+
+.next-text p{
+    position: absolute;
+    color:white;
+    padding-left: 60px;
+}
+
+.next-text button{
+    height:60px;
+    width:200px;
+    margin-top: 120px;
+    border-radius: 7px;
+    margin-left: 50px;
+}
+
+.next-text button:hover{
+    background-color: rgb(161, 159, 159);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+footer {
+    background-color: #111;
+    color: white;
+    padding: 30px;
+}
+
+/* Top Footer - Region */
+.top-footer {
+    text-align: left;
+    padding-bottom: 20px;
+}
+
+.region p {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.region span {
+    font-size: 14px;
+}
+
+.region a {
+    color: #aaa;
+    text-decoration: none;
+}
+
+.region a:hover {
+    text-decoration: underline;
+}
+
+/* Middle Footer - Newsletter, Contact, Social */
+.middle-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid #333;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+
+.middle-footer div {
+    flex: 1;
+}
+
+h3 {
+    margin-bottom: 10px;
+    font-size: 10px;
+}
+
+p {
+    font-size: 14px;
+}
+
+button {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    width: 270px;
+    height: 50px;
+    border-radius: 7px !important;
+    overflow: hidden;
+    display: inline-block;
+}
+
+
+button:hover {
+    background-color: #ddd;
+}
+
+/* Social Media Icons */
+.icons {
+    display: flex;
+    gap: 10px; /* Space between icons */
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white; /* Icon background */
+    border-radius: 3px; /* Rounded container */
+    text-decoration: none;
+    color: black; /* Icon color */
+    font-size: 20px; /* Adjust icon size */
+    transition: 0.3s;
+}
+
+.icon:hover {
+    background-color: gray;
+    color: white;
+}
+
+
+/* Company Section */
+.company {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #333;
+}
+
+.company-column {
+    flex: 1;
+}
+
+.company ul {
+    list-style: none;
+    padding: 0;
+}
+
+.company ul li {
+    margin: 5px 0;
+}
+
+.company ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.company ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    padding-top: 10px;
+}
+
+.footer-bottom a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom .logo {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+

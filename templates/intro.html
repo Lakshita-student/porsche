@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porsche Landing Page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/porsche_logo_white.png') }}" alt="Porsche Logo">
+            </div>
+
+            <div class="login-icon">
+                <p><a href="{{ url_for('login') }}">Login/Signup</a></p>
+            </div>
+    <!-- Menu Button -->
+    <button class="menu-button" id="menuBtn"><i class="fa-solid fa-bars"></i>Menu</button>
+
+    <!-- Sidebar Menu -->
+    <div class="menu-container" id="menuContainer">
+        <div class="menu-header">
+            <h3>Menu</h3>
+            <button class="close-btn" id="closeBtn">✖</button>
+        </div>
+        <div class="menu-item" onclick="showContent('models')">Models</div>
+        <div class="menu-item" onclick="showContent('vehicle-purchase')">Vehicle Purchase</div>
+        <div class="menu-item" onclick="showContent('services')">Services</div>
+        <div class="menu-item" onclick="showContent('experience')">Experience</div>
+        <div class="menu-item" onclick="showContent('find-dealer')">Find a Dealer</div>
+    </div>
+    <!-- Content Box (Initially Hidden) -->
+    <div class="content-box" id="content-box">
+        <h3>Models</h3>
+        <div class="car">
+            <div class="car-name">911</div>
+            <img src="{{ url_for('static', filename='images/car13.jpg') }}" alt="Car 13" width="300">
+            <span class="badge">Gasoline</span>
+        </div>
+        <div class="car">
+            <div class="car-name">Taycan</div>
+            <img src="{{ url_for('static', filename='images/car14.jpg') }}" alt="Car 14" width="300">
+            <span class="badge">Electric</span>
+        </div>
+        <div class="car">
+            <div class="car-name">Panamera</div>
+            <img src="{{ url_for('static', filename='images/car15.jpg') }}" alt="Car 15" width="300">
+            <span class="badge">Gasoline</span>
+        </div>
+        <div class="car">
+            <div class="car-name">Macan</div>
+            <img src="{{ url_for('static', filename='images/car16.jpg') }}" alt="Car 16" width="300">
+            <span class="badge">Gasoline</span>
+        </div>
+    </div>    
+    </nav>
+    </header>
+    <!-- Hero Section -->
+    <section class="hero">
+            <video autoplay loop muted>
+                <source src="{{ url_for('static', filename='images/porsche.mp4') }}" type="video/mp4">
+            </video>
+        <div class="overlay"></div>
+        <div class="hero-text">
+            <h1 class="animate__animated animate__fadeInUp">The one and <br> always.</h1>
+           
+            <button><a href="{{ url_for('model') }}">Go to Model Page</a></button>
+
+        </div>        
+    </section>
+
+    <div class="new-container">
+        <div class="new-card">
+            <img src="{{ url_for('static', filename='images/car1.jpg') }}" alt="The Panamera 4">
+            <div class="new-text">
+                <p><a href="{{ url_for('taycan') }}">Taycan</a></p>
+                <span>→</span>
+            </div>
+        </div>
+    
+        <div class="new-card">
+            <img src="{{ url_for('static', filename='images/car2.jpg') }}" alt="The Macan Turbo">
+            <div class="new-text">
+                <p>The Macan Turbo.</p>
+                <span>→</span>
+            </div>
+        </div>
+    
+        <div class="new-card">
+            <img src="{{ url_for('static', filename='images/car3.jpg') }}" alt="The 718 Spyder RS">
+            <div class="new-text">
+                <p>The 718 Spyder RS.</p>
+                <span>→</span>
+            </div>
+        </div>
+    </div>
+    
+    </div>
+
+    <h1>Models</h1>
+
+    <div class="model-container">
+        <div class="model-card">
+            <div class="image-wrapper">
+                <h3>718</h3>
+                <img src="{{ url_for('static', filename='images/car4.jpg') }}" alt="Porsche 718">
+                <div class="model-text">
+                    <p>The mid-engine sports car for two made for pure driving pleasure.</p>
+                    <button>Configure your 718</button>&nbsp;
+                    <button>All 718 models</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="model-card">
+            <div class="image-wrapper">
+                <h3>911</h3>
+                <img src="{{ url_for('static', filename='images/car5.jpg') }}" alt="Porsche 911">
+                <div class="model-text">
+                    <p>The iconic, rear-engine sports car with exceptional performance.</p>
+                    <button>Configure your 911</button>&nbsp;
+                    <button>All 911 models</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="model-container">
+        <div class="model-card">
+            <div class="image-wrapper">
+                <h3>718</h3>
+                <img src="{{ url_for('static', filename='images/car6.jpg') }}" alt="Porsche 718">
+                <div class="model-text">
+                    <p>The pure expression of an electric sports car withmotorsport performance.</p>
+                    <h6>From <i class="fa-solid fa-indian-rupee-sign"></i>18,942,00.00 incl.VAT</h6>
+                    <button>Configure your 718</button>&nbsp;
+                    <button>All 718 models</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="model-card">
+            <div class="image-wrapper">
+                <h3>911</h3>
+                <img src="{{ url_for('static', filename='images/car7.jpg') }}" alt="Porsche 911">
+                <div class="model-text">
+                    <p>The sports car limousine for an active lifestyle with highest comfort.</p>
+                    <h6>From <i class="fa-solid fa-indian-rupee-sign"></i>16,962,00.00 incl.VAT</h6>
+                    <button>Configure your 911</button>&nbsp;
+                    <button>All 911 models</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="model-container">
+        <div class="model-card">
+            <div class="image-wrapper">
+                <h3>718</h3>
+                <img src="{{ url_for('static', filename='images/car8.jpg') }}" alt="Porsche 718">
+                <div class="model-text">
+                    <p>All-electric SUV with impressive E-Performance.</p>
+                    <h6>From <i class="fa-solid fa-indian-rupee-sign"></i>9,605,00.00 incl.VAT</h6>
+                    <button>Configure your 718</button>&nbsp;
+                    <button>All 718 models</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="model-card">
+            <div class="image-wrapper">
+                <h3>911</h3>
+                <img src="{{ url_for('static', filename='images/car9.jpg') }}" alt="Porsche 911">
+                <div class="model-text">
+                    <p>The versatile SUV with sports car performance and up-to five seats.</p>
+                    <h6>From <i class="fa-solid fa-indian-rupee-sign"></i>14,248,00.00 incl.VAT</h6>
+                    <button>Configure your 911</button>&nbsp;
+                    <button>All 911 models</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="next-card">
+        <img src="{{ url_for('static', filename='images/car10.jpg') }}">
+        <div class="next-text">
+            <h2>Find your new or pre-<br>owned Porsche.</h2>
+            <p>A Porsche is as individual as its owner. It is always an<br> expression of one’s own personality. We help you find<br> your personal dream vehicle from authorised Porsche<br> Centres.</p>
+            <button>Find your Porsche</button>
+        </div>
+    </div>
+    
+    <div class="discover">
+        <p>Discover</p>
+    </div>
+
+    <div class="new-container">
+        <div class="new-card">
+            <img src="{{ url_for('static', filename='images/car11.jpg') }}" alt="The Panamera 4">
+            <div class="new-text">
+                <p>Porsche E-<br>Performance</p>
+                <span>→</span>
+            </div>
+        </div>
+    
+        <div class="new-card">
+            <img src="{{ url_for('static', filename='images/car12.jpg') }}" alt="The Macan Turbo">
+            <div class="new-text">
+                <p>Porsche Tequipment</p>
+                <span>→</span>
+            </div>
+        </div>
+    
+        <div class="new-card">
+            <img src="{{ url_for('static', filename='images/logo_gold.jpg') }}" alt="The 718 Spyder RS">
+            <div class="new-text">
+                <p>Porsche Exclusive Manufaktur</p>
+                <span>→</span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="top-footer">
+            <div class="region">
+                <p>Current Region / Language</p>
+                <span>🇮🇳 India / English <a href="#">Change</a></span>
+            </div>
+        </div>
+
+        <div class="middle-footer">
+            <div class="newsletter">
+                <h3>Newsletter</h3>
+                <p>Latest news directly in your inbox</p>
+                <button>Subscribe</button>
+            </div>
+
+            <div class="contact">
+                <h3>Contact</h3>
+                <p>Do you have any questions?</p>
+                <button>Contact Form</button>
+            </div>
+
+            <div class="social-media">
+                <h3>Social Media</h3>
+                <p>Get in touch with us via social media.</p>
+                <div class="icons">
+                    <a href="#" class="icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="icon"><i class="fab fa-pinterest"></i></a>
+                    <a href="#" class="icon"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="icon"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#" class="icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>                
+            </div>
+        </div>
+
+        <div class="company">
+            <div class="company-column">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">Porsche at a Glance</a></li>
+                    <li><a href="#">Partner Forum</a></li>
+                    <li><a href="#">Porsche at a Glance</a></li>
+                </ul>
+            </div>
+
+            <div class="company-column">
+                <ul>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Subsidiaries</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="company-column">
+                <ul>
+                    <li><a href="#">Career</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Porsche India - SKODA AUTO Volkswagen India Private Limited - India. 
+            <a href="#">Legal Notice</a> | <a href="#">Cookie Policy</a> | <a href="#">Privacy Policy</a> | 
+            <a href="#">Corporate Governance</a> | <a href="#">Open Source Software Notice</a> | 
+            <a href="#">Whistleblower System</a></p>
+            <img src="{{ url_for('static', filename='images/porsche_logo_white.png') }}" alt="porsche_logo_white">
+        </div>
+    </footer>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

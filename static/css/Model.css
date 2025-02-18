@@ -1,0 +1,143 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color:rgb(255, 255, 255);
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+nav {
+    display: flex;
+    padding: 15px 30px;
+    background-color: white;
+    font-size: 20px;
+}
+
+.logo {
+    font-size: 24px;
+    margin-left: 500px;
+}
+
+.logo img {
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    top: -30px;  /* Moves it higher */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.login-icon {
+    font-size: 22px;
+    cursor: pointer;
+    margin-left: 1000px;
+}
+
+.menu {
+    cursor: pointer;
+}
+
+.container {
+    position: relative;
+    padding-top: 50px;
+}
+
+.car_image {
+    width: 850px;
+    margin-top: 80px;
+}
+
+.model-selection {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.model-selection span {
+    margin: 0 10px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.model-selection .active {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.container h2 {
+   font-size: 80px;
+   font-weight: lighter;
+}
+
+.container {
+    padding: 50px;
+}
+
+h2 {
+    font-size: 50px;
+}
+
+.tag {
+    background-color: rgb(226, 222, 222);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 15.5px;
+}
+
+.price {
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.btn {
+    background-color: white ;
+    color: black;
+    padding: 12px 20px;
+    margin: 10px;
+    border: 2px solid black;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: rgb(240, 238, 238);
+    border-color: rgb(128, 122, 122);
+}
+
+.note {
+    font-size: 12px;
+    color: rgb(134, 133, 133);
+    margin-top: 20px;
+}
+
+.stats {
+    margin-top: 2px;
+}
+
+.stats h2 {
+    font-size: 40px;
+    margin: 0;
+}
+
+.car-image {
+    width: 50%;
+    margin-top: 20px;
+}
+
+.image-row {
+    display: flex;
+    gap: 10px; 
+    justify-content: center; 
+}
+
+.image-row img {
+    width: 50%; 
+    height: auto;
+    cursor: pointer;
+}
+

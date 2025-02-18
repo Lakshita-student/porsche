@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="image.png"> 
+    <title>Porsche 911 Carrera T | Porsche </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Model.css') }}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+</head>
+<body>
+    <nav>
+		<div class="menu">☰ Menu</div>
+        <div class="logo" style="height:100px;width:70px;margin-left:121px;"><img src="{{ url_for('static', filename='images/logo_porsche.png') }}"></div>
+		<div class="login-icon">
+			<i class="fa-regular fa-user"></i>
+		</div>
+		
+    </nav>
+    <hr style="color: rgb(235, 232, 232);">
+    <div class="container">
+        <img src="{{ url_for('static', filename='images/car17.jpg') }}" alt="Porsche 911 Carrera T" class="car_image" >
+		<br>
+        <div class="model-selection">
+            <span class="active">Coupé</span>
+            <span>Cabriolet</span>
+            <span>Targa</span>
+            <span>GT</span>
+        <h2>911 Carrera T</h2>
+        </div>
+        <span class="tag">Gasoline</span><br><br>
+        <p class="price">From $134,000</p>
+        
+        <div class="buttons">
+            <button class="btn" style="background-color: black;color: white;">
+            Change model</button>
+            <button class="btn" >Build Your Porsche</button>
+            <button class="btn" >New and Used Inventory</button>
+        </div>
+
+        <p class="note">
+            * Manufacturer’s Suggested Retail Price. Excludes options; taxes; title; registration; delivery, processing, and handling fee; dealer charges. Dealer sets actual selling price.
+        </p>
+        <br><br>
+
+        <div class="stats" style="text-align: left;margin-left: 178px;margin-top: 190px;">
+            <h2>4.3s</h2>
+            <p style="color: rgb(129, 124, 124);">0 - 60 mph</p>
+            <h2>183mph</h2>
+            <p style="color: rgb(129, 124, 124);">Top track speed (with summer tires)</p>
+            <img src="{{ url_for('static', filename='images/car18.jpg') }}" alt="Porsche 911 Carrera T" class="car-image" 
+            style="margin-left: 500px;margin-top:-500px;">
+        </div>
+    </div>
+    <button class="btn" style="margin-left: -700px;" >Technical Specs</button><br>
+    <img src="{{ url_for('static', filename='images/911.jpg') }}" alt="911"><br>
+    <img src="{{ url_for('static', filename='images/car19.jpg') }}" alt="Porsche 911 Carrera T" class="animate__animated animate__pulse car-image "
+    style="margin-top:20px;width:1000px;"><br>
+    <div class="container">
+        <div class="text-section" style="text-align: left;margin-left:187px;">
+            <h1 style="font-size: 40px;">The one and <br> always.</h1><br>
+            <p style="font-size: 20px;">The 911 Carrera T: For over 55 years, the T has <br> stood not only for touring, but above all for 
+               <br>puristic driving pleasure — thanks to targeted <br> lightweight construction,
+               emotional engine <br> sound, characteristic design elements and a <br> precise manual transmission.</p>
+        </div>
+        <div class="image-section" style="margin-left:645px;margin-top:-347px;">
+            <img src="{{ url_for('static', filename='images/car20.jpg') }}" alt="Porsche 911 Carrera T" class="animate__animated animate__slideInUp " style="border-radius:12px">
+        </div>
+        <div class="image-section" style="margin-top:43px;margin-left:-230px;">
+            <img src="{{ url_for('static', filename='images/car21.jpg') }}" alt="Porsche 911 Carrera T" class="animate__animated animate__slideInUp " style="border-radius:12px">
+        </div><br><br><br>
+        <div> <h2 style="font-size: 50px;">Highlights.</h2> </div>
+    <!--div class="navigation" >
+            <button id="prevBtn"> ← </button>
+            <button id="nextBtn"> → </button--->   
+        <div class="image-row">
+          <img src="{{ url_for('static', filename='images/car22.jpg') }}" alt="Porsche rear view">
+          <img src="{{ url_for('static', filename='images/car23.jpg') }}" alt="Porsche gear shift">
+          <img src="{{ url_for('static', filename='images/gear.jpg') }}" alt="Porsche wheels">
+          <img src="{{ url_for('static', filename='images/accents.jpg') }}" alt="Porsche accents">
+          <img src="{{ url_for('static', filename='images/watch.jpg') }}" alt="Porsche Custom-built time peices">
+        </div>
+    </div><br><br>
+    <div style="left:-100px;position: relative;display:inline-block;">
+        <img src="{{ url_for('static', filename='images/car24.jpg') }}" width="1500px" style="margin-left: 0px;">
+       
+    </div>
+</body>
+<script>
+	document.querySelectorAll(".model-selection span").forEach(item => {
+    item.addEventListener("click", () => {
+        document.querySelectorAll(".model-selection span").forEach(span => span.classList.remove("active"));
+        item.classList.add("active");
+    });
+});
+
+// login 
+document.getElementById("loginBtn").addEventListener("click", function () {
+    alert("Login button clicked!");
+});
+
+ // Add interactivity (if needed later)
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("Porsche Page Loaded");
+});
+
+
+</script>
+</html>

@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porsche Taycan</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .carousel-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+            width: 100px;
+        }
+
+        .slide {
+            flex: 0 0 auto;
+            /* Adjust width dynamically */
+            position: relative;
+            padding: 20px;
+        }
+
+        .slide img,
+        .slide video {
+            border-radius: 15px;
+            display: block;
+            max-width: 100%;
+            /* Ensures media does not overflow */
+            height: auto;
+            /* Maintains aspect ratio */
+        }
+
+        .dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            margin: 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background-color: black;
+        }
+
+
+
+
+
+        .carousel-wrapper {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 10px;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-item {
+            flex: 0 0 auto;
+            width: 500px;
+            /* Smaller size */
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            margin: 5px;
+            background-color: #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background-color: black;
+        }
+
+
+
+
+
+
+
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 65vh;
+            overflow: hidden;
+        }
+
+        .hero video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .menu {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .porsche-logo {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .porsche-logo img {
+            height: 50px;
+        }
+
+        .user-option {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .taycan-text {
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 5rem;
+            font-weight: bold;
+            color: white;
+            font-style: italic;
+        }
+
+        /* Car Image Section */
+        .car-section {
+            position: relative;
+            background: white;
+            padding-top: 20px;
+            height: auto;
+        }
+
+        .car-image {
+            width: 70%;
+            margin-top: -429px;
+            /* Increase the negative margin to move it further up */
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Car Details Section */
+        .model-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 18px;
+            margin-top: -50px;
+        }
+
+        .model-tabs span {
+            cursor: pointer;
+            padding-bottom: 10px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .model-tabs span.active {
+            border-bottom: 3px solid black;
+            border-radius: 0px;
+        }
+
+
+
+        .electric-badge {
+            background: #e0e0e0;
+            display: inline-block;
+            padding: 5px 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .price {
+            margin-top: 10px;
+            font-size: 20px;
+        }
+
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            padding: 10px 15px;
+            border: 2px solid black;
+            font-size: 16px;
+            cursor: pointer;
+            background: white;
+        }
+
+        .button.black {
+            background: black;
+            color: white;
+        }
+
+        .note {
+            font-size: 12px;
+            color: gray;
+            margin-top: 20px;
+            padding: 0 20px;
+        }
+
+        /* Performance Stats */
+        .performance-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            padding: 50px;
+            text-align: left;
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        .stats {
+            max-width: 600px;
+        }
+
+        .stat {
+            font-size: 5rem;
+            font-weight: 300;
+        }
+
+        .unit {
+            font-size: 2rem;
+            font-weight: 400;
+        }
+
+        .subtext {
+            font-size: 18px;
+            color: gray;
+            margin-top: 8px;
+            font-weight: 400;
+        }
+
+        .bold-text {
+            font-weight: 600;
+            color: gray;
+            text-decoration: none;
+        }
+
+        .performance-car img {
+            width: 650px;
+        }
+
+        .btn {
+            margin-top: 35px;
+            padding: 14px 26px;
+            font-size: 20px;
+            border: 2px solid black;
+            background: white;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+
+        /* Hover effects for buttons */
+        .button {
+            transition: background 1s ease, color 0.3s ease, border-color 0.3s ease;
+            border-radius: 5px;
+            /* Rounded corners */
+        }
+
+        .button:hover {
+            background: rgb(199, 199, 199);
+            color: rgb(0, 0, 0);
+            border-color: rgb(199, 199, 199);
+        }
+
+        /* Style for model tabs */
+        .model-tabs span {
+            cursor: pointer;
+            padding: 10px 15px;
+            border-radius: 10px;
+            /* Rounded corners */
+            transition: all 0.3s ease-in-out;
+            /* Smooth transition */
+        }
+
+        /* Hover effect */
+        .model-tabs span:hover {
+            color: grey;
+            background: rgba(128, 128, 128, 0.1);
+            /* Light grey background */
+            border-bottom: 2px solid grey;
+        }
+
+
+        .video-container {
+            margin-top: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 8;
+            /* Ensures it's above the black background */
+        }
+
+        .video-container video {
+            width: 70%;
+            height: auto;
+            border-radius: 20px;
+            display: block;
+            margin: auto;
+        }
+
+
+        .corner-image-bottom {
+            position: absolute;
+            bottom: -100px;
+            /* Adjust as needed */
+            right: 50px;
+            /* Adjust as needed */
+            width: 550px;
+            /* Adjust based on your design */
+            z-index: 3;
+            border-radius: 20px;
+        }
+
+
+        .overlay-image {
+            position: absolute;
+            bottom: -600px;
+            /* Adjust as needed */
+            right: 500px;
+            /* Adjust as needed */
+            width: 800px;
+            /* Adjust based on your design */
+            z-index: 4;
+            /* Ensure it's above img2 */
+            border-radius: 20px;
+        }
+
+
+        .image-background {
+            position: absolute;
+            top: 30%;
+            left: 0;
+            width: 100%;
+            height: 1100px;
+            background: black;
+            z-index: -1;
+            /* Lower than the video */
+        }
+
+
+        /* Overfeel Section */
+        .overfeel-section {
+            background: rgb(0, 0, 0);
+            color: white;
+            padding: 80px 20px;
+            text-align: left;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .overfeel-section h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .overfeel-section p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            line-height: 1.6;
+        }
+
+
+
+
+        .container {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        /* Move first box lower */
+        .first-box {
+            margin-top: 300px;
+            margin-bottom: 100px;
+            margin-left: 100px;
+
+        }
+
+        .second-box {
+            margin-top: 200px;
+            margin-bottom: 100px;
+        }
+
+        .box {
+            position: relative;
+            width: 650px;
+            height: 700px;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .text {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: black;
+            font-size: 20px;
+        }
+
+        .number {
+            font-size: 80px;
+            font-weight: bold;
+        }
+
+        /* Grey Box at Bottom */
+        .charge-box {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(197, 196, 196, 0.641);
+            /* Dark Grey */
+            color: rgb(0, 0, 0);
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 16px;
+            width: 50%;
+            /* Ensure it spans */
+        }
+
+
+        .energ video {
+            width: 85%;
+            /* Adjust as needed */
+            height: auto;
+            /* Maintain aspect ratio */
+            border-radius: 20px;
+            /* Rounded corners */
+            display: block;
+            margin: auto;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            /* Optional shadow for better appearance */
+        }
+
+
+        .peperf {
+            overflow-x: hidden;
+            /* Hides horizontal scrollbar */
+            overflow-y: hidden;
+            /* Hides vertical scrollbar */
+            justify-content: center;
+            /* Centers content */
+            align-items: center;
+            /* Aligns items vertically */
+            width: 100vw;
+            /* Ensures it spans full viewport width */
+            max-width: 100%;
+            /* Prevents overflow */
+
+        }
+
+        .peperf img {
+            max-width: 100%;
+            /* Makes sure images scale within the container */
+            height: auto;
+            /* Maintains aspect ratio */
+            object-fit: cover;
+            /* Ensures images cover their box */
+            padding: 0px;
+        }
+
+
+        .peperf {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .black.bg {
+            margin-top: 0;
+            padding-top: 0;
+        }
+
+        .black.bg {
+            position: relative;
+            top: -10px;
+            /* Adjust as needed */
+        }
+
+        .peperf {
+            display: block;
+            line-height: 0;
+            /* Removes extra space */
+        }
+
+        .peperf img {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+        .container1 {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            /* Increased width */
+            height: 500px;
+            /* Reduced height */
+            margin-left: 300px;
+            overflow: hidden;
+            /* Ensures image does not exceed the container */
+            border-radius: 20px;
+        }
+
+        .image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Ensures the image scales correctly within the new dimensions */
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 0.5rem;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            /* Reduced font size */
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            /* Reduced font size */
+            margin-bottom: 1rem;
+        }
+
+        .button {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            color: black;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            cursor: pointer;
+        }
+
+        .button i {
+            margin-right: 0.5rem;
+        }
+
+
+
+        .five-carousel-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+
+        .five-carousel-wrapper {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .five-carousel-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+
+        .five-carousel-card {
+            scroll-snap-align: start;
+            flex: none;
+            width: 100%;
+            max-width: 300px;
+            /* Increased width */
+            height: 650px;
+            /* Reduced height */
+            margin-right: 16px;
+            background-color: #dddddd;
+            border-radius: 8px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .five-carousel-card img {
+            width: 100%;
+            height: 120px;
+            /* Adjusted image height */
+            object-fit: cover;
+            /* Ensures the image maintains its aspect ratio */
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+
+        .five-carousel-card h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .five-carousel-card p {
+            color: #4b5563;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
+        .five-carousel-badge {
+            display: inline-block;
+            background-color: #ffffff;
+            color: #1f2937;
+            font-size: 0.75rem;
+            width: 60px;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+
+        .five-carousel-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .five-carousel-buttons button {
+            flex: 1;
+            padding: 6px;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+        }
+
+        .five-btn-configure {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        .five-btn-tech-data {
+            border: 1px solid #000000;
+            color: #000000;
+            background: none;
+        }
+
+
+        .footer {
+            background-color: #111;
+            color: white;
+            padding: 30px 60px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #444;
+            padding-bottom: 20px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin: 10px 20px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .footer-column p {
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        .footer-column button {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            max-width: 180px;
+            margin-top: 10px;
+        }
+
+        .footer-column button:hover {
+            background-color: #ddd;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icons a {
+            background-color: white;
+            color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+        }
+
+        .company-links {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .company-links div {
+            min-width: 200px;
+        }
+
+        .company-links a {
+            display: block;
+            font-size: 14px;
+            margin: 5px 0;
+            color: #aaa;
+        }
+
+        .footer-bottom {
+            font-size: 12px;
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Background Video Section -->
+    <div class="hero">
+        <video autoplay loop muted>
+            <source src="{{ url_for('static', filename='images/Taycan_black.mp4') }}" type="video/mp4">
+        </video>
+        <div class="overlay"></div>
+        <div class="menu">☰ Menu</div>
+        <div class="porsche-logo">
+            <img src="{{ url_for('static', filename='images/porsche_logo_white.png') }}" alt="Porsche Logo">
+        </div>
+        <div class="user-option">👤 User</div>
+    </div>
+
+    <!-- Car Image and Details Section -->
+    <div class="car-section">
+        <img src="{{ url_for('static', filename='images/car33.jpg') }}" alt="Taycan Car" class="car-image">
+
+        <!-- Model Selection and Pricing -->
+        <div class="model-tabs">
+            <span class="active">Sedan</span>
+            <span>Cross Turismo</span>
+            <span>Sport Turismo</span>
+        </div>
+
+        <h1 class="taycan-title" style="margin-top: 20px;">Taycan</h1>
+        <div class="electric-badge">Electric</div>
+        <p class="price">From $99,400<sup>1</sup></p>
+
+        <div class="buttons">
+            <button class="button black">Change model</button>
+            <button class="button">Build Your Porsche</button>
+            <button class="button">New and Used Inventory</button>
+            <button class="button">EPA range estimates</button>
+        </div>
+
+        <p class="note">
+            <sup>1</sup> Manufacturer's Suggested Retail Price. Excludes options; taxes; title; registration; delivery,
+            processing and handling fee; dealer charges. Dealer sets actual selling price.
+        </p>
+    </div>
+
+    <!-- Performance Stats -->
+    <div class="performance-container">
+        <!-- Performance Stats -->
+        <div class="stats">
+            <div class="section">
+                <span class="stat" id="acceleration">0</span><span class="unit">s</span>
+                <p class="subtext">0 - 60 mph with Launch Control</p>
+            </div>
+
+            <div class="section">
+                <span class="stat" id="power">0</span><span class="unit"> kW / 402 hp</span>
+                <p class="subtext">Power up to (kW)/Power up to (HP)</p>
+                <p class="subtext">Details of the measuring method can be found at
+                    <a href="https://www.porsche.com/gtr21" target="_blank" class="bold-text">www.porsche.com/gtr21</a>
+                </p>
+            </div>
+
+            <div class="section">
+                <span class="stat" id="speed">0</span><span class="unit"> mph</span>
+                <p class="subtext">Top track speed (with summer tires)</p>
+            </div>
+
+            <button class="btn">Technical Specs</button>
+        </div>
+
+        <!-- Performance Car Image -->
+        <div class="performance-car">
+            <img src="{{ url_for('static', filename='images/car25.jpg') }}" alt="Porsche Taycan">
+        </div>
+    </div>
+    <br><br><br><br>
+    <div><img src="{{ url_for('static', filename='images/Taycan.logo.jpg') }}" style="height: 100px; margin-top: 40px;" alt=""></div><br><br><br>
+    <div class="video-container" style="position: relative;">
+        <div class="image-background"></div>
+        <video autoplay loop muted>
+            <source src="{{ url_for('static', filename='images/Taycan_black.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="overfeel-section">
+            <h1>Overfeel.</h1>
+            <p>
+                The overwhelming feeling of sitting in an amazing<br>
+                electric sports car: The new Taycan makes <br>
+                electricity even more electrifying. Performance <br>
+                even more impressive.And the extraordinary <br>
+                even more outstanding.
+            </p>
+        </div>
+
+
+        <img src="{{ url_for('static', filename='images/car32.jpg') }}" alt="Corner Image" class="corner-image-bottom">
+        <img src="{{ url_for('static', filename='images/car31.jpg') }}" alt="Overlay Image" class="overlay-image">
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <div class="container">
+        <!-- First Box (Moved Lower) -->
+        <div class="box first-box">
+            <img src="{{ url_for('static', filename='images/car26.jpg') }}" alt="Car">
+            <div class="text">
+                <p>Up to</p>
+                <p class="number">274</p>
+                <p>miles of range</p>
+            </div>
+            <div class="charge-box">
+                <strong>Porsche E-Performance</strong><br>
+                More about ranges.
+            </div>
+        </div>
+
+        <!-- Second Box -->
+        <div class="box second-box">
+            <div class="box">
+                <img src="{{ url_for('static', filename='images/car35.jpg') }}" alt="Car">
+                <div class="text">
+                    <p>Charging time</p>
+                    <p class="number">18</p>
+                    <p>Minutes</p>
+                </div>
+                <div class="charge-box">
+                    <strong>Charge Porsche</strong><br>
+                    More about our charging solutions.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <div style="font-size: 60px;">
+        Taycan highlights
+    </div>
+    <br><br><br><br>
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="slide">
+                <video autoplay muted loop>
+                    <source src="{{ url_for('static', filename='images/blue_car.mp4') }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="slide">
+                <img src="{{ url_for('static', filename='images/car34.jpg') }}" alt="Image 2">
+            </div>
+            <div class="slide">
+                <img src="{{ url_for('static', filename='images/car28.jpg') }}" alt="Image 3">
+            </div>
+            <div class="slide">
+                <img src="{{ url_for('static', filename='images/car30.jpg') }}" alt="Image 4">
+            </div>
+            <div class="slide">
+                <img src="{{ url_for('static', filename='images/car29.jpg') }}" alt="Image 5">
+            </div>
+        </div>
+        <div class="dots"></div>
+    </div>
+    <br><br><br><br><br><br><br>
+    <div style="font-size: 50px;">Energetic.From every perspective</div>
+    <br><br><br><br><br><br><br>
+    <div class="energ">
+        <video autoplay loop muted>
+            <source src="{{ url_for('static', filename='images/blue_car.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <br><br><br><br><br><br><br>
+    <div><img
+            style="width: 60%; height: auto;border-radius: 20px;display: block;margin: auto;box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);"
+            src="{{ url_for('static', filename='images/car36.jpg') }}" alt="xyz"></div>
+    <br><br><br><br><br>
+
+    <div class="peperf">
+        <img src="{{ url_for('static', filename='images/car33.jpg') }}" alt=""><img src="{{ url_for('static', filename='images/text.jpg') }}" alt="">
+    </div>
+    <div class="black bg" style="background-color: rgb(14, 14, 14); height: 200px; width: 100%;"></div>
+
+    <br><br><br><br><br><br>
+
+
+
+
+
+
+
+
+    <div class="container1">
+        <img src="https://storage.googleapis.com/a1aa/image/sZDcS4jRr2BbXw35tHwb4LeLWNC30O5l5JVqrRHDd80.jpg"
+            alt="Close-up of a car's dashboard with a speedometer showing 0 mph" class="image">
+        <div class="overlay">
+            <h1 class="title">Electric pioneer. In terms of sound, too.</h1>
+            <p class="subtitle">Discover the unmistakable sound of the Porsche Taycan Turbo S now.</p>
+            <div class="button" onmousedown="playSound()" onmouseup="stopSound()" onmouseleave="stopSound()">
+                <i class="fas fa-play"></i> Hold for sound
+            </div>
+        </div>
+    </div>
+
+    <audio id="sound" src="{{ url_for('static', filename='images/audio1.mp3') }}"></audio>
+
+    <br><br><br><br>
+
+    <div style="font-size: 40px; font-weight: 40px;">
+        Which Taycan is best for you?
+    </div>
+    <br><br><br><br>
+
+
+
+
+
+
+    <div class="five-carousel-container">
+        <div class="five-carousel-wrapper">
+            <!-- Card 1 -->
+            <div class="five-carousel-card" style="background-color: #ffffff;">
+                <div class="five-carousel-badge" style="background-color: #dcdcdc;">Electric</div>
+                <img src="https://storage.googleapis.com/a1aa/image/dDuBEXZvXWG7PtTAK-WcLuFv_J_eJdzG_SZD_2erJVA.jpg"
+                    alt="Image of Taycan car">
+                <h2>Taycan</h2>
+                <p>From $99,400</p>
+                <p>4.5 s - 0 to 60 mph</p>
+                <p>300 kW / 402 hp</p>
+                <p>274 mi Driving Range</p>
+                <div class="five-carousel-buttons">
+                    <button class="five-btn-configure">Configure</button>
+                    <button class="five-btn-tech-data">Technical Data</button>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="five-carousel-card">
+                <div class="five-carousel-badge">Electric</div>
+                <img src="https://storage.googleapis.com/a1aa/image/DWsdSZiP2LecU0nrT68lIdbo_g8shSW1Vzbz_nP5la0.jpg"
+                    alt="Image of Taycan 4 car">
+                <h2>Taycan 4</h2>
+                <p>From $103,300</p>
+                <p>4.4 s - 0 to 60 mph</p>
+                <p>300 kW / 402 hp</p>
+                <p>143 mph Top Speed</p>
+                <div class="five-carousel-buttons">
+                    <button class="five-btn-configure">Configure</button>
+                    <button class="five-btn-tech-data">Technical Data</button>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="five-carousel-card">
+                <div class="five-carousel-badge">Electric</div>
+                <img src="https://storage.googleapis.com/a1aa/image/fS5tabkKzmOIFcbj_-Wmp3WdXpp9cPIF7RAAYxzORWk.jpg"
+                    alt="Image of Taycan 4S car">
+                <h2>Taycan 4S</h2>
+                <p>From $118,500</p>
+                <p>3.5 s - 0 to 60 mph</p>
+                <p>400 kW / 536 hp</p>
+                <p>252 mi Driving Range</p>
+                <div class="five-carousel-buttons">
+                    <button class="five-btn-configure">Configure</button>
+                    <button class="five-btn-tech-data">Technical Data</button>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="five-carousel-card">
+                <div class="five-carousel-badge">Electric</div>
+                <img src="https://storage.googleapis.com/a1aa/image/JhPWZwKTe0lDyHVAAow1UoB00SBpNHoEU_XAIaaRoXo.jpg"
+                    alt="Image of Taycan GTS car">
+                <h2>Taycan GTS</h2>
+                <p>From $147,900</p>
+                <p>3.1 s - 0 to 60 mph</p>
+                <p>515 kW / 690 hp</p>
+                <p>155 mph Top Speed</p>
+                <div class="five-carousel-buttons">
+                    <button class="five-btn-configure">Configure</button>
+                    <button class="five-btn-tech-data">Technical Data</button>
+                </div>
+            </div>
+            <div class="five-carousel-card">
+                <div class="five-carousel-badge">Electric</div>
+                <img src="https://storage.googleapis.com/a1aa/image/fS5tabkKzmOIFcbj_-Wmp3WdXpp9cPIF7RAAYxzORWk.jpg"
+                    alt="Image of Taycan 4S car">
+                <h2>Taycan 4S</h2>
+                <p>From $118,500</p>
+                <p>3.5 s - 0 to 60 mph</p>
+                <p>400 kW / 536 hp</p>
+                <p>252 mi Driving Range</p>
+                <div class="five-carousel-buttons">
+                    <button class="five-btn-configure">Configure</button>
+                    <button class="five-btn-tech-data">Technical Data</button>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="five-carousel-card">
+                <div class="five-carousel-badge">Electric</div>
+                <img src="https://storage.googleapis.com/a1aa/image/JhPWZwKTe0lDyHVAAow1UoB00SBpNHoEU_XAIaaRoXo.jpg"
+                    alt="Image of Taycan GTS car">
+                <h2>Taycan GTS</h2>
+                <p>From $147,900</p>
+                <p>3.1 s - 0 to 60 mph</p>
+                <p>515 kW / 690 hp</p>
+                <p>155 mph Top Speed</p>
+                <div class="five-carousel-buttons">
+                    <button class="five-btn-configure">Configure</button>
+                    <button class="five-btn-tech-data">Technical Data</button>
+                </div>
+            </div>
+            <div class="five-carousel-card">
+                <div class="five-carousel-badge">Electric</div>
+                <img src="https://storage.googleapis.com/a1aa/image/fS5tabkKzmOIFcbj_-Wmp3WdXpp9cPIF7RAAYxzORWk.jpg"
+                    alt="Image of Taycan 4S car">
+                <h2>Taycan 4S</h2>
+                <p>From $118,500</p>
+                <p>3.5 s - 0 to 60 mph</p>
+                <p>400 kW / 536 hp</p>
+                <p>252 mi Driving Range</p>
+                <div class="five-carousel-buttons">
+                    <button class="five-btn-configure">Configure</button>
+                    <button class="five-btn-tech-data">Technical Data</button>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="five-carousel-card">
+                <div class="five-carousel-badge">Electric</div>
+                <img src="https://storage.googleapis.com/a1aa/image/JhPWZwKTe0lDyHVAAow1UoB00SBpNHoEU_XAIaaRoXo.jpg"
+                    alt="Image of Taycan GTS car">
+                <h2>Taycan GTS</h2>
+                <p>From $147,900</p>
+                <p>3.1 s - 0 to 60 mph</p>
+                <p>515 kW / 690 hp</p>
+                <p>155 mph Top Speed</p>
+                <div class="five-carousel-buttons">
+                    <button class="five-btn-configure">Configure</button>
+                    <button class="five-btn-tech-data">Technical Data</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br><br><br><br><br><br><br><br>
+
+
+
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-column">
+                <h3>Newsletter</h3>
+                <p>Latest news directly in your inbox</p>
+                <button>Subscribe</button>
+            </div>
+            <div class="footer-column">
+                <h3>Locations & Contacts</h3>
+                <p>Do you have any questions?</p>
+                <button>Get in touch</button>
+            </div>
+            <div class="footer-column">
+                <h3>Social Media</h3>
+                <p>Get in touch with us via social media.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="company-links">
+            <div>
+                <h3>Company & Support</h3>
+                <a href="#">Porsche Cars North America</a>
+                <a href="#">Global Partnership Council</a>
+                <a href="#">Newsroom & Press</a>
+            </div>
+            <div>
+                <h3></h3>
+                <a href="#">Recall Information</a>
+                <a href="#">Compliance</a>
+            </div>
+            <div>
+                <h3></h3>
+                <a href="#">Career</a>
+                <a href="#">Sustainability</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 Porsche Cars North America, Inc.
+            <a href="#">Legal notice</a>,
+            <a href="#">Privacy notice</a>,
+            <a href="#">California Privacy</a>,
+            <a href="#">Accessibility Statement</a>,
+            <a href="#">NMLS #3164</a>,
+            <a href="#">Open Source Software Notice</a>,
+            <a href="#">Do Not Sell or Share My Personal Information</a>,
+            <a href="#">Whistleblower System</a>,
+            <a href="#">Emergency Responders</a>,
+            <a href="#">In-Use Verification Program</a>,
+            <a href="#">Certification of Compliance</a>.
+        </div>
+        <br><br><br><br>
+        <div style="margin-bottom: 0px;">
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<img
+                src="img.png" alt="">
+        </div>
+    </footer>
+
+
+    <script>
+
+
+        window.onload = function () {
+            // Update performance values
+            document.getElementById("acceleration").textContent = "4.5";
+            document.getElementById("power").textContent = "300";
+            document.getElementById("speed").textContent = "143";
+
+            // Carousel Functionality
+            const carousel = document.querySelector(".carousel");
+            const dotsContainer = document.querySelector(".dots");
+            const slides = document.querySelectorAll(".slide");
+            const totalSlides = slides.length;
+
+            let index = 0;
+            const slideWidth = slides[0].offsetWidth; // Get slide width dynamically
+
+            // Create navigation dots
+            for (let i = 0; i < totalSlides; i++) {
+                let dot = document.createElement("div");
+                dot.classList.add("dot");
+                dot.addEventListener("click", () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+            }
+
+            const dots = document.querySelectorAll(".dot");
+            dots[0].classList.add("active");
+
+            function goToSlide(slideIndex) {
+                index = slideIndex; // Ensure `index` is properly declared elsewhere
+                carousel.style.transform = `translateX(-${index * slideWidth}px)`;
+                updateDots();
+            }
+
+
+            function updateDots() {
+                dots.forEach(dot => dot.classList.remove("active"));
+                dots[index].classList.add("active");
+            }
+
+            // Auto-scroll every 3 seconds
+            setInterval(() => {
+                index = (index + 1) % totalSlides;
+                goToSlide(index);
+            }, 3000);
+        };
+
+
+        function playSound() {
+            var sound = document.getElementById("sound");
+            sound.play();
+        }
+
+        function stopSound() {
+            var sound = document.getElementById("sound");
+            sound.pause();
+            sound.currentTime = 0;
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

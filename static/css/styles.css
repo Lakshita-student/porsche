@@ -1,0 +1,452 @@
+/* Reset Styles */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Header/Navbar */
+header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    color: white;
+    z-index: 10;
+}
+
+.login-icon {
+    font-size: 15px;
+    cursor: pointer;
+    margin-left: 550px;
+}
+
+.login-icon p{
+    margin-top: -10px;
+    margin-left:600px;
+}
+
+h1{
+    margin-left:600px;
+}
+
+.new-container {
+    display: flex;
+    justify-content: center;
+    /* Centers the items */
+    gap: 20px;
+    /* Space between cards */
+    padding: 40px 0;
+    flex-wrap: wrap;
+    /* Ensures responsiveness */
+}
+
+.new-card {
+    position: relative;
+    width: 300px;
+    /* Adjust as needed */
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    flex: 1;
+    /* Makes the items evenly spaced */
+    max-width: 350px;
+    /* Prevents excessive stretching */
+}
+
+.new-card:hover {
+    transform: scale(1.05);
+}
+
+.new-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    display: block;
+}
+
+.new-text p a {
+    color: black; /* Change to any color you want */
+    text-decoration: none; /* Removes underline (optional) */
+}
+
+.new-text p a:hover {
+    color: black; /* Change color when hovered */
+}
+
+
+/* Porsche Logo */
+.logo img {
+    width: auto;
+    height: auto;
+    margin-left: 500px;
+}
+
+/* Menu Button */
+.menu-button {
+    position: absolute; /* or use 'fixed' if you want it to stay on scroll */
+    top: 25px; /* Adjust this value to move it further down if needed */
+    left: 10px; /* Adjust for left alignment, or use 'right' for right alignment */
+    background-color: transparent;
+    border: none;
+    font-size: 15px;
+    width: fit-content;
+    height: fit-content;
+    color: white;
+    cursor: pointer; /* Adds pointer cursor for better UX */
+}
+
+
+.menu-button:hover {
+    background-color: rgb(133, 130, 130);
+}
+
+/* Sidebar Menu */
+.menu-container {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 400px;
+    height: 100%;
+    background: #fff;
+    padding: 20px;
+}
+
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.close-btn {
+    font-size: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-item {
+    padding: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    background: #f8f8f8;
+    color: #111;
+}
+
+.menu-item:hover {
+    background: #ddd;
+}
+
+/* Content Box */
+.content-box {
+    position: fixed;
+    margin-top: -50px;
+    margin-left: 360px;
+    padding: 20px;
+    width: 80%;
+    height:100%;
+    background: #f3f2f2;
+    display: none;
+    color:black;
+    min-height: 100vh; /* Minimum height to fill the screen, expands if content is more */
+    overflow-y: auto;
+    /* Hidden until menu selection */
+}
+
+/* Car Section */
+.car {
+    margin-bottom: 20px;
+    margin-left: 100px;
+}
+
+.car h3 {
+    margin-left: 300px;
+}
+
+.car img {
+    width: 100%;
+    max-width: 350px;
+    display: block;
+    margin-top: 10px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.car img:hover {
+    transform: scale(1.1);
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    overflow: hidden;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Position h3 on top-left of the image */
+.image-wrapper h3 {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.car-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.badge {
+    display: inline-block;
+    background-color: #111;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: white;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Dark Overlay */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Hero Text */
+.hero-text {
+    position: absolute;
+    top: 60%;
+    left: 5%;
+    transform: translateY(-50%);
+    color: white;
+    text-align: left;
+    font-size: 70px;
+    line-height: 1.1;
+    font-weight: 300;
+}
+
+.hero-text button {
+    background: transparent;
+    color: white;
+    padding: 15px 30px;
+    border: 3px solid white;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s ease-in-out;
+}
+
+.hero-text button:hover {
+    border-color: rgb(173, 172, 172);
+}
+
+.hero-text h1{
+    margin-left:30px;
+}
+
+/* Model Section */
+.model-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 50px auto;
+    flex-wrap: wrap;
+}
+
+/* Model Cards */
+.model-card {
+    position: relative;
+    width: 400px;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.model-card:hover {
+    transform: translateY(-8px);
+}
+
+.model-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    /* Semi-transparent background */
+    color: white;
+    text-align: center;
+}
+
+.model-text p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Buttons */
+.model-text button {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    background: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+    color: black;
+}
+
+.model-text button:hover {
+    background: lightgray;
+}
+
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .hero-text {
+        font-size: 50px;
+    }
+
+    .model-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Discover Section */
+.discover p {
+    font-size: 45px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Next Section */
+.next-card {
+    display: flex;
+    background-color: black;
+    height: 450px;
+    width: 1100px;
+    margin-left: 150px;
+    border-radius: 15px;
+    margin: 70px auto 60px;
+}
+
+.next-card img {
+    width: 550px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.next-text h2,
+.next-text p {
+    color: white;
+    padding-left: 60px;
+}
+
+.next-text button {
+    height: 60px;
+    width: 200px;
+    margin-top: 120px;
+    border-radius: 7px;
+    margin-left: 50px;
+}
+
+.next-text button:hover {
+    background-color: rgb(161, 159, 159);
+}
+
+/* Footer */
+footer {
+    background-color: #111;
+    color: white;
+    padding: 30px;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    padding-top: 10px;
+}
+
+.footer-bottom a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+/* Social Media Icons */
+.icons {
+    display: flex;
+    gap: 10px;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 3px;
+    color: black;
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.icon:hover {
+    background-color: gray;
+    color: white;
+}
