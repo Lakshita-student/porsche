@@ -15,7 +15,7 @@
         }
         .login-container {
             background: white;
-            padding: 170px;
+            padding: 50px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 350px;
@@ -25,7 +25,7 @@
             display: block;
             width: 100%;
             padding: 10px;
-            margin: 20px;
+            margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
@@ -34,22 +34,16 @@
             font-weight: bold;
             letter-spacing: 3px;
             background: #ccc;
-            padding:5px;
+            padding: 5px;
             display: inline-block;
             margin: 10px 0;
-            height:90%;
-            width:350px;
-            margin-left: 20px;
-        }
-
-        #captcha-input{
-            width:300px;
+            width: 100%;
         }
         button {
             background-color: black;
             color: white;
             padding: 10px;
-            width:100%;
+            width: 100%;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -58,11 +52,6 @@
         button:hover {
             background: #333;
         }
-          
-        h2{
-            margin-top: -10px;
-        }
-        
         .footer {
             width: 100%;
             padding-top: -100px;
@@ -79,36 +68,39 @@
             margin: 0 10px;
             text-decoration: none;
         }
-
         .image{
             width:max-content;
             height:fit-content;
             margin-bottom:-100px ;
         }
-
     </style>
 </head>
 <body>
+
     <div class="image">
         <img src ="{{ url_for('static', filename='images/login.png') }}" alt="login.png"> 
     </div>
     <div class="login-container">
-        <img src ="{{ url_for('static', filename='images/logo_porsche.png') }}" width ="200">
+        <img src ="{{ url_for('static', filename='images/logo_porsche.png') }}" width="200">
         <h2>Welcome! Log in with your Porsche ID</h2>
-        <p>Please enter the e-mail address, you defined as your Porsche ID</p>
-        <form id="login-form">
-            <input type="email" id="email" placeholder="Porsche ID (Email)" required>
-            <input type="password" id="password" placeholder="Password" required>
+        <p>Please enter the email address you defined as your Porsche ID</p>
+
+        <form id="login-form" method="POST" action="{{ url_for('login') }}">
+            <input type="email" name="email" placeholder="Porsche ID (Email)" required>
+            <input type="password" name="password" placeholder="Password" required>
             <div class="captcha">
                 <span id="captcha-text"></span>
-                <input type="text" id="captcha-input" placeholder="Enter CAPTCHA" required>
             </div>
+            <input type="text" id="captcha-input" placeholder="Enter CAPTCHA" required>
             <button type="submit">Login with password</button>
         </form>
+
         <p>Don't have a Porsche ID? <a href="{{ url_for('signup') }}">Sign up</a></p>
     </div>
+
     <div class="footer">
-        © 2025 Porsche Sales & Marketplace, Inc. <a href="#">Legal Notice</a> | <a href="#">Privacy Policy</a> | <a href="#">Cookie Policy</a> | <a href="#">Accessibility Statement</a> | <a href="#">Open Source Software Notice</a>
+        © 2025 Porsche Sales & Marketplace, Inc. 
+        <a href="#">Legal Notice</a> | <a href="#">Privacy Policy</a> | <a href="#">Cookie Policy</a>
     </div>
 
     <script>
@@ -117,18 +109,13 @@
             document.getElementById("captcha-text").innerText = captchaText;
 
             document.getElementById("login-form").addEventListener("submit", function(event) {
-                event.preventDefault();
                 let userCaptcha = document.getElementById("captcha-input").value;
-                if (userCaptcha.toUpperCase() === captchaText) {
-                    alert("Login successful");
-                } else {
+                if (userCaptcha.toUpperCase() !== captchaText) {
+                    event.preventDefault();  // Stop form submission
                     alert("Invalid CAPTCHA. Try again.");
                 }
             });
         });
     </script>
-    
-    
-
 </body>
 </html>
